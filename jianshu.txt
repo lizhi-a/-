@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简书</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;;
+		}
+		#header{
+			position:sticky;
+			top:0px;
+			width:1340px;
+			height:58px;
+			border-bottom:1px solid #eee;
+			z-index:100;
+		}
+		a.logo{
+			display:inline-block;
+			width:100px;
+			height:56px;
+		}
+		#header-nav{
+			display: inline-block;
+			position: absolute;
+			top:0px;
+			width:1140px;
+			height:58px;
+			margin-left:100px;
+			background-color:white;
+		}	
+		#header-nav .nav1{
+			display: inline-block;
+			list-style-type: none;
+			width:545px;
+			height:58px;
+		}
+		#header-nav .nav1 li{
+			float:left;
+			margin-right:10px;
+			padding:15px;
+			border-style:none;
+			font-size:17px;
+		}
+		#header-nav ul li a:link{
+			color:#ea6f5a;
+			text-decoration:none;
+		}
+		#header-nav ul li a:visited{
+			color:#ea6f5a;
+			text-decoration:none;
+		}
+		#header-nav ul li a:hover{
+			color:#ea6f5a;
+			text-decoration:none;
+		}
+		#header-nav ul li a:active{
+			color:#ea6f5a;
+			text-decoration:none;
+		}
+		.meau-text2 span{
+			color:black;
+		}
+		.search-padding{
+			margin:9px;
+			padding:0px;
+		}
+		#header-nav ul li form{
+			width:230px;
+			height:38px;		
+		}
+		.search-txt{
+			width:100px;
+			height:38px;
+			padding:0px 0px 0px 15px;
+			background-color: #eee;
+			border-style:none;
+			border-radius:20px;
+			outline: none; 
+            overflow:hidden;  
+  		 	-webkit-transition: all .3s;  
+    		-moz-transition: all .3s;  
+    		-o-transition: all .3s;
+		}
+		.search-txt:focus{
+			width:200px;
+			outline:none
+		}
+		.nav2{
+			display:inline-block;
+			list-style-type:none;
+			width:460px;
+			height:58px;
+			float:right;
+		}
+		#header-nav .nav2 li{
+			float:left;
+			margin-right:10px;
+			padding:14px 7px;
+			border-style:none;
+			font-size:17px;
+		}
+		.nav-right span{
+			font-size:17px;
+			line-height: 30px;
+			height:30px;
+		}
+		.signup a{
+			display: block;
+			border:1px solid #ea6f5a;
+			padding:7px 24px;
+			border-radius:50px;
+			margin:9px;
+		}
+		#content{
+			width:74%;
+			height:2400px;
+			margin:30px 200px 50px 200px;
+			background-color:white;
+		}
+		#content-left{
+			display: inline-block;
+			width:65%;
+			height:100%;
+			background-color:white;
+			margin-right:25px;
+		}
+		#content-right{
+			display: inline-block;
+			position:absolute;
+			width:320px;
+			height:2400px;
+			background-color:white;			
+		}
+		#right-photo{
+			width:280px;
+			height:225px;
+			margin:0px 5px 0px 0px;
+		}
+		#二维码{
+			position: relative;
+			display: inline-block;
+			width:280px;
+			height:80px;
+			background-color:white;
+			border:1px solid #eee;
+			border-radius:7px;
+		}
+		#二维码 img{
+			display: inline-block;
+			margin:10px 10px 10px 20px;
+		}
+		#span2{
+			display:inline-block;
+			position:relative;;
+			width:180px;
+			height:50px;
+			bottom:25px;
+			line-height:24px;
+		}
+		/*<img src="二维码.png" class="tooltiptext" style="width:150px;">
+
+		.tooltiptext{			
+			position:absolute;
+			visibility:hidden;
+			width:150px;
+			height:150px;
+			
+
+			z-index：1；
+			
+		}
+		.tooltiptext::after{
+			content="";
+			position: absolute;
+			left:50%;
+			margin-left:-5px;
+			border-width:5px;
+			border-style:solid;
+			border-color:#eee transparent transparent transparent;
+		}*/
+		#author-list{
+			width:280px;
+			height:450px;
+			background-color:white;
+			margin-top:20px;
+		}
+		#author-top{
+			width:280px;
+			height:20px;
+		}
+		.author-top{
+			display:inline-block;
+			font-size:14px;
+			color:gray;
+			padding:5px;
+		}
+		.author-list2::before{
+			content:"\E6E6";
+		}
+		.author{
+			display: block;
+			width:280px;
+			height:52px;
+			margin-top:15px;
+		}
+		.author-photo{
+			display: inline-block;
+			width:48px;
+			height:48px;
+			border-radius: 50%;
+			overflow: hidden;
+			margin-right:5px;
+		}
+		.message{
+			position: relative;
+			display: inline-block;
+			width:210px;
+			height:45px;
+			bottom:8px;
+		}
+		.author-word{
+			padding:0px;
+		}
+		.message span{
+			font-size:14px;
+		}
+		.greenword{
+			color:green;
+			float: right;
+		}
+		.author-word{
+			font-size:10px;
+			color:gray;
+			padding:5px 0px;
+		}
+		.author-name{
+			color:black;
+			text-decoration: none;
+		}
+		.author-name:visited{
+			color:black;
+			text-decoration: none;
+		}
+		.all{
+			display: block;
+			width:262px;
+			height:19px;
+			padding:7px;
+			border:1px solid #969696;
+			border-radius:4px;
+			background-color: #eee;
+			margin-top:20px;
+			line-height:19px;
+			text-align:center;
+			color:gray;
+			text-decoration: none;
+		}
+		.all:visited{
+			color:gray;
+			text-decoration: none;
+		}
+		#photo{
+			width:625px;
+			height:270px;
+			overflow:hidden;
+			margin:3px 0px 20px 0px;
+		}
+		#photos{
+			 width: calc(1360px * 2);
+			 height:270px;
+			 -webkit-animation: switch 6s ease-out infinite normal;
+		}
+		#photos img{
+			width:625px;
+			height:270px;
+			float:left;
+			border-radius: 5px;
+		}
+		@-webkit-keyframes switch{
+    		0%, 50% { /* 第1张图所用时长 */
+       		 	margin-left: 0px; /* 第一张距离左侧的长度 */
+   			 }
+    		55%, 100% {/* 第2张图所用时长 */
+       		 	margin-left:-279px; /* 第一张距离左侧的长度 */
+    		}
+    		55%, 100% {/* 第2张图所用时长 */
+       		 	margin-left:-279px; /* 第一张距离左侧的长度 */
+    		}
+    	}
+		#longlist{
+				width:625px;
+				height:2100px;
+				background-color:white;
+		}
+		.line{
+			width:625px;	
+			margin:0px 0px 15px 0px;
+			padding:15px 2px 20px 0px;
+			border-bottom:1px solid #eee;
+		}
+		.title{
+			display: block;
+			margin:0px 0px 5px 0px;
+			color:black;
+			text-decoration: none;
+		}
+		.title:hover{
+			text-decoration: underline;
+		}
+		.title:visited{
+			color:black;
+			text-decoration: underline;
+		}
+		.abstract{
+			display: block;
+			width:625px;
+			font-size:13px;
+			color:gray;
+			margin:0px 0px 8px 0px;
+		}
+		.meta{
+			width:625px;
+			height:20px;
+		}
+		.one{
+			display: inline-block;
+			margin:0px 10px 0px 0px;
+			color:#ea6f5a;
+			font-size:10px;
+		}
+		/*.one::before{
+			
+			width:5px;
+			height:5px;
+		}*/
+		.two{
+			display: inline-block;
+			margin:0px 10px 0px 0px;
+			color:gray;
+			font-size:10px;
+			text-decoration: none;
+		}
+		.three{
+			display: inline-block;
+			margin:0px 10px 0px 0px;
+			color:gray;
+			font-size:10px;
+			text-decoration: none;
+		}
+		.three::before{
+			content: url("消息111.png");
+		}
+		.four{
+			display: inline-block;
+			margin:0px 10px 0px 0px;
+			color:gray;
+			font-size:10px;
+		}
+		.four::before{
+			content: url("爱心111.png");
+		}
+		.line-photo{
+			float:right;
+			width:150px;
+			height: 100px;
+			border-radius: 3px;
+		}
+		.list-button{
+			width:625px;
+			height:40px;
+			border:1px solid #a5a5a5;
+			border-radius:50px;
+			color:white;
+			background-color:#a5a5a5;
+			font-size:15px;
+			margin:20px 0px 50px 0px;
+		}
+		.list-button:hover{
+			color:white;
+		}
+		#footer{
+			width:680px;
+			height:120px;
+			margin:0px 800px 50px 200px;
+			background-color:white;
+		}
+		.footer-list a{
+			color: #969696;
+			text-decoration: none;
+			font-size: 13px;
+		}
+		.footer-list a:hover{
+			color: #2f2f2f;
+		}
+		.footer-word{
+			margin:10px 0px 0px 0px;
+			color:#969696;
+			font-size:10px;
+		}
+		.footer-word a{
+			color:#969696;
+			text-decoration:none;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<a class="logo" href="https://www.jianshu.com/">
+			<img src="左上logo.png" style="width:100px;height:56px;">
+		</a>
+		<div id="header-nav">
+			<ul class="nav1">
+				<li>
+					<a href="https://www.jianshu.com/" class="meau-text">首页</a>
+				</li>
+				<li>
+					<a href="https://www.jianshu.com/apps?utm_medium=desktop&utm_source=navbar-apps" class="meau-text2"><span>下载App</span></a>
+				</li>
+				<li class="search-padding" style="padding:0px;">
+					<form>
+						<input class="search-txt" type="text" name="" placeholder="搜索" style="position: fixed;">
+					</form>
+				</li>
+			</ul>
+			<ul class="nav2">
+				<li class="nav-right">
+					<span style="color:gray;">Aa</span>
+				</li>
+				<li>
+					<img src="top钻石.png" width="60px">
+				</li>
+				<li style="padding:17px;">
+					<a href="https://www.jianshu.com/sign_in" style="color:gray;"><span>登录</span></a>
+				</li>
+				<li class="signup" style="padding:0px;">
+					<a href="https://www.jianshu.com/sign_up" ><span>注册</span></a>
+				</li>
+				<li class="signup" style="padding:0px;margin-right:0px;">
+					<a href="https://www.jianshu.com/writer#/" style="color:white;background-color:#ea6f5a;">
+						<img src="羽毛111.png" style="width:20px;height:20px"><span>写文章</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div id="content">
+		<div id="content-left">
+			<div id="photo">
+				<div id="photos">
+					<img src="轮播图1.png">
+					<img src="轮播图2.png">
+				</div>
+			</div>
+			<div id="longlist">
+				<div class="line">
+					<a class="title" href="https://www.jianshu.com/p/a97b717593ea"><h3>136道js面试题</h3></a>
+					<p class="abstract">1. javascript的typeof返回哪些数据类型. 答案：string,boolean,number,undefined,functio...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:17px;height:17px;">15.1
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/b4e540b4b607">O蚂蚁O</a>
+						<a class="three" href="https://www.jianshu.com/p/a97b717593ea">5</a>
+						<span class="four">241</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="钻石111.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/bb11665f394e"><h3>从四大花旦到四小花旦，说说那些我们一直不变的审美</h3></a>
+					<p class="abstract">2019版的娱乐圈四小花旦刚出炉，粉饼是欧阳娜娜、文淇、关晓彤、张子枫。 从2000年南都评选四小花旦开始，已经有很多个版本了。今天就来说说。 ...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">6.9
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/29a37f84df82">芳芳的爱美圣经</a>
+						<a class="three" href="https://www.jianshu.com/p/bb11665f394e">9</a>
+						<span class="four">56</span>
+					</div>
+				</div>
+				<div class="line">
+					<a class="title" href="https://www.jianshu.com/p/4308a1fbb60b"><h3>天秤座、天蝎座、射手座为什么会焦虑，其深层根源是什么？</h3></a>
+					<p class="abstract">1、天秤座--害怕“断舍离”引起的自责。 天秤座或许会生活在一个有兄弟姐妹的家庭中，或许他们的父母之间存在矛盾与冲突，所以，他们从小就必须不断地...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">1.9</span>
+						<a class="two" href="https://www.jianshu.com/u/8391fecd1782">夏侯</a>
+						<a class="three" href="https://www.jianshu.com/p/4308a1fbb60b">0</a>
+						<span class="four">27</span>
+					</div>
+				</div>
+				<div class="line">
+					<a class="title" href="https://www.jianshu.com/p/50532bcecb68"><h3>程序员被老板要求两个月做个app, 要不比京东差，网友：辞职吧</h3></a>
+					<p class="abstract">隔行如隔山这句话说的真没错，尤其是现在的编程开发，如果你不是程序员的话，可能看程序员工作就是在电脑面前敲敲代码，觉得十分简单，不就是敲敲代码，这...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">15.1
+						</span>
+						<a class="two" href="https://www.jianshu.com/p/50532bcecb68">大山里的前端攻略师</a>
+						<a class="three" href="https://www.jianshu.com/p/50532bcecb68">11</a>
+						<span class="four">29</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="3.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/0cc2cf021682"><h3>大学生C语言“巅峰”之作，简单实现推箱子大战游戏！</h3></a>
+					<p class="abstract">还记得大家小时候玩过的游戏吗？曾经的坦克大战、推箱子、贪吃蛇都是我们以前玩过的小游戏，然而现在随着大型单机、网络游戏的光芒照耀下，那些曾经的小游...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">3
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/16fe1b2bc5df">c语言编程</a>
+						<a class="three" href="https://www.jianshu.com/p/0cc2cf021682">1</a>
+						<span class="four">18</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="4.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/fb248fea28c5"><h3>HR：“对不起，我们不招35岁以上的员工”</h3></a>
+					<p class="abstract">福建福州，在2019年高校毕业生供需见面会上，许多工作岗位对年龄有限制，“20-30岁”，“30周岁以下”，有求职者认为此举不公平。一位招聘方工...</p>
+					<div class="meta">
+						
+						<a class="two" href="https://www.jianshu.com/p/fb248fea28c5">leo戈多</a>
+						<a class="three" href="https://www.jianshu.com/p/fb248fea28c5">6</a>
+						<span class="four">26</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="5.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/5e8b874e67ce"><h3>为什么我文章的阅读量一直不高</h3></a>
+					<p class="abstract">去年4月份通过朋友知道了简书，4月16号写下第一篇文章，到今天共发了155篇，20.1万字。 我对篇数和字数还算满意，只是阅读数最多的也就4位数...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">127.4
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/96a31c958faf">天边微云</a>
+						<a class="three" href="https://www.jianshu.com/p/5e8b874e67ce">191</a>
+						<span class="four">768</span>
+					</div>
+				</div>
+				<div class="line">
+					<a class="title" href="https://www.jianshu.com/p/1568fc2d89ed"><h3>B超里的生意</h3></a>
+					<p class="abstract">在农村小诊所B超的用途，大多都是针对孕妇用的。虽然怀孕初期的孕妇一般都是查个胎儿性别什么的，国家明令禁止，但有很多要钱什么都不要医生，还是顶风而...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">1.6
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/16a4f8712061">大山里的前端攻略师</a>
+						<a class="three" href="https://www.jianshu.com/p/1568fc2d89ed">5</a>
+						<span class="four">10</span>
+					</div>
+				</div>
+				<div class="line">
+					<a class="title" href="https://www.jianshu.com/p/a85fdad563e0"><h3>喜欢还是为爱</h3></a>
+					<p class="abstract">朋友叫Y,有一天晚上打电话给我，问我要不要答应她男朋友出去过夜。 Y是文学院的，男朋友是体院的，一开始去学校的时候人生地不熟，偶然互相认识了，一...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">3.6
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/85f88f2f2e26">安暖moon</a>
+						<a class="three" href="https://www.jianshu.com/p/a85fdad563e0">0</a>
+						<span class="four">26</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="2.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/007d1b33af26"><h3>C++月薪2W的一道笔试题！只有1%的人答对了</h3></a>
+					<p class="abstract">最近看到这样一道题，感觉很有意思吗 ，据说是月薪2W的笔试题，当然 了，肯定还有很多题了，所以 就算你会这道题并不表示你能月薪2W哈哈哈。 下面...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">2.1
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/16fe1b2bc5df">c语言编程</a>
+						<a class="three" href="https://www.jianshu.com/p/007d1b33af26">2</a>
+						<span class="four">18</span>
+					</div>
+				</div>
+				
+				<div class="line">
+					
+					<a class="title" href="https://www.jianshu.com/p/886c74c08805"><h3>段子也幽默：理头一半给一半的钱</h3></a>
+					<p class="abstract">1. 老板说:‘’昨天的现金收入不是六百三吗，你交到我手上怎么是六百？‘’ 员工说:昨天我把钱都带回宿舍了，没有把纯收入和本钱分开，今...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">9.1
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/065de3a8465b">云卷云舒—7a20</a>
+						<a class="three" href="https://www.jianshu.com/p/886c74c08805">2</a>
+						<span class="four">30</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="6.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/73ba8ec4f94c"><h3>流年含香，与时光对饮</h3></a>
+					<p class="abstract">岁月缱绻。剪一段优雅的时光，在流年的梦里把他点亮，深藏记忆的心海，芳菲岁月的温婉从容，盈一眸岁月的浅笑，荡漾旖旎的情怀...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">49.7
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/0da9a8404314">微蓝若海cium</a>
+						<a class="three" href="https://www.jianshu.com/p/73ba8ec4f94c">29</a>
+						<span class="four">198</span>
+					</div>
+				</div>
+				<div class="line">
+					<a><img src="7.png" class="line-photo"></a>
+					<a class="title" href="https://www.jianshu.com/p/fefccd52353e"><h3>包文婧的爱情，我只有六分感动</h3></a>
+					<p class="abstract">文/婉兮 图/网络 1 印象中的包文婧，不太像能吃苦的女孩。 她第一次登上热搜引发大规模关注，应该是在两年前的《妈妈是超人》。在节目中，包文婧...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">23.5
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/3501fea35ae8">婉xi</a>
+						<a class="three" href="https://www.jianshu.com/p/fefccd52353e">9</a>
+						<span class="four">93</span>
+					</div>
+				</div>
+				<div class="line">
+					<a class="title" href="https://www.jianshu.com/p/6d829365b877"><h3>树欲静而风不止，子欲养而亲不待！</h3></a>
+					<p class="abstract">对门的孟阿姨夜里突然走了，走的悄无声息，所有人都不知道，留下了自己五岁多的儿子和十岁多女儿，孟阿姨怎么突然走了，所有人都感到很意外。因为就在孟阿...</p>
+					<div class="meta">
+						<span class="one">
+							<img src="钻石111.png" style="width:15px;height:15px;">9.7
+						</span>
+						<a class="two" href="https://www.jianshu.com/u/628a3ea28ce5">萌芽豆瓣</a>
+						<a class="three" href="https://www.jianshu.com/p/6d829365b877">8</a>
+						<span class="four">34</span>
+					</div>
+				</div>
+				<form>
+					<input type="submit" name="" value="阅读更多" class="list-button">
+				</form>
+			</div>
+		</div>
+
+
+		<div id="content-right">
+			<div id="right-photo">
+				<a href="https://www.jianshu.com/mobile/club"><img src="右边1.png" style="width:280px;"></a>
+				<a href="https://www.jianshu.com/mobile/books?category_id=284"><img src="右边2.png" style="width:280px;"></a>
+				<a href="https://www.jianshu.com/publications"><img src="右边3.png" style="width:280px;"></a>
+				<a href="https://www.jianshu.com/c/e048f1a72e3d?utm_medium=index-banner-s&utm_source=desktop"><img src="右边4.png" style="width:280px;"></a>
+			</div>
+			<div id="二维码">
+				<img src="二维码.png" style="width:60px;height:60px;">
+				<div id="span2">
+					<p><span style="font-size:15px;">下载简书手机App ></span><br>
+					<span style="font-size:14px;color:gray;">随时随地发现和创造内容</span></p>
+				</div>
+				
+			</div>
+			<div id="author-list">
+				<div id="author-top">
+					<span style="float:left;" class="author-top">推荐作者</span>
+					<span style="float:right;" class="author-list2 author-top">换一批</span>
+				</div>
+
+				<div class="author">
+					<a href="https://www.jianshu.com/u/ef4f2422125f?utm_source=desktop&utm_medium=index-users">
+					<img src="author1.png" class="author-photo"></a>
+					<div class="message">
+						<a href="https://www.jianshu.com/u/ef4f2422125f?utm_source=desktop&utm_medium=index-users"class="author-name"><span >卢璐说</span></a>
+						<a href="https://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-index-user-follow-button"><span class="greenword">+关注</span></a>
+						<p class="author-word">写了1416.2k字、29.2k喜欢</p>
+					</div>
+				</div>
+
+				<div class="author">
+					<a href="https://www.jianshu.com/u/51b4ef597b53?utm_source=desktop&utm_medium=index-users"><span class="author-name"><img src="author2.png" class="author-photo"></a>
+					<div class="message">
+						<a class="author-name"href="https://www.jianshu.com/u/51b4ef597b53?utm_source=desktop&utm_medium=index-users"><span >董克平日记</span></a>
+						<a href="https://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-index-user-follow-button"><span class="greenword"><span class="greenword">+关注</span></a>
+						<p class="author-word">写了851.5k字、2.9k喜欢</p>
+					</div>
+				</div>
+
+				<div class="author">
+					<a href="https://www.jianshu.com/u/c5a2ce84f60b?utm_source=desktop&utm_medium=index-users"><span class="author-name"><img src="author3.png" class="author-photo"></a>
+					<div class="message">
+						<a class="author-name"href="https://www.jianshu.com/u/c5a2ce84f60b?utm_source=desktop&utm_medium=index-users"><span >简书钻首席小管家</span></a>
+						<a href="https://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-index-user-follow-button"><span class="greenword"><span class="greenword">+关注</span></a>
+						<p class="author-word">写了265 8k字、163 3k喜欢</p>
+					</div>
+				</div>
+
+				<div class="author">
+					<a href="https://www.jianshu.com/u/paQcNW?utm_source=desktop&utm_medium=index-users"><span class="author-name"><img src="author4.png" class="author-photo"></a>
+					<div class="message">
+						<a class="author-name"href="https://www.jianshu.com/u/paQcNW?utm_source=desktop&utm_medium=index-users"><span >邓哲</span></a>
+						<a href="https://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-index-user-follow-button"><span class="greenword"><span class="greenword">+关注</span></a>
+						<p class="author-word">写了422.1k字-1.3k喜欢</p>
+					</div>
+				</div>
+
+				<div class="author">
+					<a href="https://www.jianshu.com/u/6810a6332de9"><span class="author-name"><img src="author5.png" class="author-photo"></a>
+					<div class="message">
+						<a class="author-name"href="https://www.jianshu.com/u/6810a6332de9"><span >梅拾璎</span></a>
+						<a href="https://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-index-user-follow-button"><span class="greenword"><span class="greenword">+关注</span></a>
+						<p class="author-word">写了272.8k字; 30.1k喜欢</p>
+					</div>
+				</div>
+				<a class="all" href="https://www.jianshu.com/recommendations/users?utm_source=desktop&utm_medium=index-users"><p >查看全部></p></a>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="footer-list">
+			<a href="https://www.jianshu.com/c/jppzD2">关于简书</a>
+			<em> · </em>
+			<a href="https://www.jianshu.com/contact">联系我们</a>
+			<em> · </em>
+			<a href="https://www.jianshu.com/c/bfeec2e13990">加入我们</a>
+			<em> · </em>
+			<a href="https://www.jianshu.com/p/fc1c113e5b6b">简书出版</a>
+			<em> · </em>
+			<a href="https://www.jianshu.com/press/resources">品牌与徽标</a>
+			<em> · </em>
+			<a href="https://www.jianshu.com/faqs">帮助中心</a>
+			<em> · </em>
+			<a href="https://www.jianshu.com/p/cabc8fa39830">合作伙伴</a>
+		</div>
+		<p class="footer-word">?2012-2019 上海佰集信息科技有限公司 / 简书 /
+			<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402002252" ><img src="小图标1.png" style="width:15px;">沪ICP备11018329号-5</a> / 沪公网安备31010402002252号 / 
+			<a href="http://www.shjbzx.cn/"><img src="小图标2.png" style="width:20px;">
+			</a> 简书网举报电话：021-34770013 /<a href="about:blank"><img src="小图标3.png" style="width:20px;"></a> 亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听 / <img src="小图标4.png" style="width:13px;">
+		</p>
+	</div>
+</body>
+</html>

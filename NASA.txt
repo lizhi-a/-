@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NASA</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		body{
+			background-image: url(ÐÇ¿Õ3.jpg);
+			background-repeat: repeat;	
+			margin:0px;
+			padding:0px;		
+			font-family:  "Titillium Web", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			width:100%;
+		}
+		#top{
+			position:sticky;
+			width:100%;
+			height:144px;
+			top:0px;
+			background-image:url(ÐÇ¿Õ3.jpg);
+		}
+		#righttop{
+			position:absolute;
+			margin-top: 41px;
+			left:21px;
+		}
+		#list1{
+			position:absolute;
+			width:825px;
+			height:50%;
+			top:19px;
+			left:300px;
+		}
+		#list1 ul{
+			list-style-type:none;
+			margin:0;
+			padding:0;
+			position:absolute;
+			width:100%;
+			height:100%;
+			background-color:transparent;	
+		}
+		#list1 li a{
+			float:left;
+			text-align: center;
+		}
+		#list1 li a,.dropbtn{
+			display:inline-block;
+			color:white;
+			padding:30px 10px;
+			text-align:center;
+			text-decoration:none;		
+			border-right:1px solid gray;
+		}
+		.border1{
+			border-right-style: none;
+		}
+		.dropbtn{
+			color:	#E8E8E8;
+			font-size: 1.23em;
+			font-family:"Titillium Web", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			font-weight:100;
+		}
+		.dropbtn:hover{
+			background-color:#15418c ;
+			border-right-color:#15418c ;
+		}
+		.dropdown{
+			display: inline-block;
+		}
+		.dropdown-content{
+			display:none;
+			position:absolute;
+			background-color:#15418c;
+			z-index:100;
+		}
+		.dropdown-content a{
+			color:#E8E8E8;
+			padding:12px 20px 12px 10px;
+			text-decoration: none;
+			display:block;
+			font-size: 18px;
+		}
+		.dropdown:hover{
+			background-color:#15418c;
+		}
+		.dropdown-content a:hover {
+			background-color:#003366;
+		}
+		.dropdown:hover .dropdown-content{
+			display: block;
+			z-index:100;
+		}
+		#search-box2{
+			position: relative;
+			float:right;
+			width:220px;
+			height:50px;
+			left:5px;
+			top:37px;		
+		}
+		.search-txt{
+			width:150px;
+			height:40px;
+			padding:0px 0px 0px 8px;
+			background-color: #333333;
+			border-style:none;
+		}
+		.share1{
+			position: relative;
+			border-style:none;
+			width:33px;
+			height:34px;
+			left:-40px;
+			top:14px;
+		}
+		.share2{
+			position: relative;
+			border-style:none;
+			width:33px;
+			height:34px;
+			left:159px;
+			top:-32px;
+		}
+		#list2{
+			position: absolute;
+			width:970px;
+			height:40px;
+			top:104px;
+			left:185px;
+			background-color:#555;
+		}
+		#list2 ul li{
+			display:inline-block;
+			float:left;
+			font-size:13px;
+			font-weight:600;
+			padding:12px 13px;
+			margin:0px 0px;
+			color:#E0E0E0;
+		}
+		#list2 ul li:not(:last-child){
+			border-right-style:solid;
+			border-right-width: 1px;
+			border-color:transparent #989898 transparent transparent;			
+		}
+		#list2 li:hover{
+			background-color:#989898;
+		}
+		#list2 li a:link,#list2 li a:visited,#list2 li a:hover,#list2 li a:active{
+			color:#E8E8E8;
+			text-decoration:none;
+		}
+		#content{
+			position:relative;
+			width:100%;
+			z-index:-1;
+		}
+		#line1{
+			position:relative;
+			width:100%;
+			height:620px;
+			background-color:transparent;
+			margin:10px 0px;
+		}
+		#photo1{
+			position: absolute;
+			width:47%;
+			height:100%;
+			background:url(1.Óîº½Ô±.jpg) -145px -30px;
+			margin:0px 10px 0px 0px;
+		}
+		.character{
+			position:absolute;
+			bottom:0px;
+		}
+		.character1{
+			width:120px;
+			bottom:0px;
+			background-color:#5d7fb9;
+			opacity: 0.8;
+			filter:alpha(opacity=80);
+			padding:8px;
+		}
+		.character2{
+			position:relative;
+			bottom:0px;
+			background-color:white;
+			opacity: 0.8;
+			filter:alpha(opacity=80);
+			color:black;
+			padding:8px;
+		}
+		.character1 a:link,.character1 a:visited,.character1 a:hover,.character1 a:active{
+			color:white;
+			text-decoration:none;
+			font-weight: 700;
+		}
+		.character2 a:link,.character2 a:visited,.character2 a:hover,.character2 a:active{
+			color:black;
+			font-weight: 600;
+			font-size:17px;
+			text-decoration:none;
+		}
+		#photo2{
+			position: absolute;
+			left:48%;
+			width:25%;
+			height:47%;
+			/*background:url(1.2º½ÌìÆ÷.jpg) -390px -70px;*/
+			margin:0px 0px 10px 0px;
+		}
+		#photo2 a img{
+			position: absolute;
+			width:100%;
+			height:100%;
+		}
+		#word{
+			position:absolute;
+			left:74%;
+			width:25%;
+			height:47%;
+			margin:0px 0px 10px 0px;
+			background-color:#39719e;
+			color:white;
+		}
+		#word-in{
+			position: absolute;
+			margin:10px 10px 0px 10px;
+		}
+		#word p,#word span{
+			font-size:13px;
+			line-height:16px;
+		}
+		#content2{
+			margin:10px 0px 0px 0px;
+		}
+		#content2 p a:link {
+			color:white;
+			text-decoration:none;
+		}
+		#content2 p a:visited{
+			color:white;
+			text-decoration:none;
+		}
+		#content2 p a:hover{
+			color:red;
+			text-decoration:underline;
+		}
+		#content2 p a:active{
+			color:white;
+			text-decoration:none;
+		}
+		#bottom{
+			position:relative;
+			top:20px;
+		}
+		#bottom a:link,#bottom a:visited{
+			color:white;
+			text-decoration: none;
+		}
+		#bottom a:hover{
+			color:white;
+			text-decoration:underline;
+		}
+		#bottom a:active{
+			color:white;
+			text-decoration: none;
+		}
+		#photo3{
+			position:absolute;
+			left:48%;
+			top:50%;
+			width:51%;
+			height:50%;
+			background:url(1.3ÈËÏñ.jpg) 0px -50px;
+		}
+		#line2{
+			position:relative;
+			width:96%;
+			height:300px;
+			background-color: transparent;
+			margin:10px 0px 10px 0px;
+		}
+		#photo21{
+			position: absolute;
+			width:25%;
+			height:100%;
+			background: url(2.1º½Ìì·É»ú.gif) -450px 0px;
+			margin:0px 10px 0px 0px;
+		}
+		#photo22{
+			position:absolute;
+			width:50%;
+			height:100%;
+			left:26%;
+			background:url(2.2ÎÀÐÇ.jpg) -200px 0px;
+		}
+		#line3{
+			position:relative;
+			width: 100%;
+			height:300px;
+			/*top:950px;*/
+			margin:0px 0px 10px 0px;
+		}
+		#photo31{
+			position: absolute;
+			width:24%;
+			height:100%;
+			background:url(3.1.jpg) -500px -60px;
+		}
+		#photo32{
+			position: absolute;
+			width:24%;
+			height:100%;
+			left:25%;
+			background:url(3.2.png) -80px 0px;			
+		}
+		#photo33{
+			position:absolute;
+			width:24%;
+			height:100%;
+			left:50%;
+			background:url(3.3.jpg) -350px 0px;
+		}
+		#photo34{
+			position:absolute;
+			width:24%;
+			height:100%;
+			left:75%;
+			background:url(3.4.jpg) -120px 0px;			
+		}
+		#footer{
+			position:relative;
+			height:230px;
+			background-color:#000;
+		}
+		.bottom2{
+			position: relative;
+			width:100%;
+			height:40px;
+			background-color:#15418c;
+			color:white;		
+			border-style:none;
+			font-size:17px;
+			font-weight:600;
+			top:0px;
+		}
+		.bottom2:hover{
+			background-color: #6699CC;
+		}
+		#footer2{
+			width:100%;
+			height:90px;
+		}
+		.picture{
+			display: inline-block;
+			position: relative;
+			top:20px;
+			left:10px;
+		}
+		#footer span{
+			position: relative;
+			display:inline-block;
+			color:white;
+			width:80%;
+			bottom:25px;
+			font-size:14px;
+			font-weight:600;
+		}
+		#footer ul{
+			list-style-type:none;
+			margin:0;
+			padding:0;
+			width:910px;
+			background-color:#000;
+			float:right;
+		}
+		#footer ul li{
+			display:inline-block;
+		}
+		#footer ul li a:link , #footer ul li a:visited{
+			color:#5d7fb9;
+			padding:2px 11px;
+			font-size:13px;
+			font-weight:600;
+			text-decoration:none;
+		}
+		#footer ul li a:hover{
+			color:#5d7fb9;
+			padding:2px 11px;
+			font-size:13px;
+			font-weight:600;
+			text-decoration:underline;
+		}
+		#footer ul li a:active{
+			color:#5d7fb9;
+			padding:2px 11px;
+			font-size:13px;
+			font-weight:600;
+			text-decoration:underline;		
+	</style>
+</head>
+<body>
+	<div id="container">
+	<div id="top">
+		<div id="righttop">
+			<a href="//www.nasa.gov/" ><img src="nasa-×óÉÏ.svg" ></a> 
+		</div>
+		<div id="list1">
+			<ul>
+				<div class="dropdown">
+					<a href="" class="dropbtn">Missions</a>
+					<div class="dropdown-content">
+						<a href="https://www.nasa.gov/mission_pages/station/main/index.html">Internation Space Station</a>
+						<a href="https://www.nasa.gov/mission_pages/msl/index.html">Curiosity Mars Rover</a>
+						<a href="https://www.nasa.gov/mission_pages/insight/main/index.html">InSight Mars Lander</a>
+						<a href="https://www.nasa.gov/content/goddard/parker-solar-probe">Parker Solar Probe</a>
+						<a href="https://www.nasa.gov/specials/artemis/">Artemis Program</a>
+						<a href="https://www.nasa.gov/exploration/commercial/crew/index.html">Commercial Crew</a>
+						<a href="https://www.nasa.gov/mission_pages/juno/main/index.html">Juno:Mission at Jupiter</a>
+						<a href="https://www.nasa.gov/osiris-rex">OSIRIS-REx Asteroid Mission</a>
+						<a href="https://www.nasa.gov/mission_pages/webb/main/index.html">James Webb Space Telescope</a>
+						<a href="https://www.nasa.gov/mission_pages/newhorizons/main/index.html">New Horizons:Pluto and Beyond</a>
+						<hr>
+						<a href="https://www.nasa.gov/launchschedule">Launches and Landings</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<a class="dropbtn" href="">Galleries</a>
+					<div class="dropdown-content">
+						<a href="https://www.nasa.gov/multimedia/imagegallery/iotd.html">Image of the Day</a>
+						<a href="https://www.nasa.gov/multimedia/imagegallery/index.html">Image Gallerires</a>
+						<a href="https://www.nasa.gov/multimedia/videogallery/index.html">Videos</a>
+						<a href="https://www.nasa.gov/content/ultra-high-definition-video-gallery">Ultra High-Def Videos</a>
+						<a href="https://www.nasa.gov/multimedia/guidelines/index.html">Usage and Copyright</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<a class="dropbtn" href="https://www.nasa.gov/multimedia/nasatv/index.html#public">NASA TV</a>
+				</div>
+				<div class="dropdown">
+					<a class="dropbtn" href="">Follow NASA</a>
+					<div class="dropdown-content">
+						<a href="https://www.nasa.gov/socialmedia">Social Media</a>
+						<a href="https://www.nasa.gov/connect/social/index.html">NASA Socials</a>
+						<a href="https://blogs.nasa.gov/https://blogs.nasa.gov/">NASA Blogs</a>
+						<a href="https://www.nasa.gov/nasalive">NASA Live</a>
+						<a href="https://www.nasa.gov/solve/index.html">Get Involved</a>
+						<a href="https://spotthestation.nasa.gov/">Spot the Station</a>
+						<a href="https://lp.constantcontactpages.com/su/hHN32CZ/nasagov">NASA Newsletter</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<a class="dropbtn" href="">Downloads</a>
+					<div class="dropdown-content">
+						<a href="https://www.nasa.gov/connect/apps.html">Apps</a>
+						<a href="https://www.nasa.gov/podcasts">Podcasts</a>
+						<a href="https://www.nasa.gov/podcasts">E-Books</a>
+						<a href="https://www.nasa.gov/connect/sounds/index.html">Audio & Ringtones</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<a class="dropbtn" href="">About</a>
+					<div class="dropdown-content">
+						<a href="https://www.nasa.gov/about/index.html">About NASA</a>
+						<a href="https://www.nasa.gov/nasa-leadership">Leadership</a>
+						<a href="https://www.nasa.gov/about/org_index.html">Organization</a>
+						<a href="">Locations</a>
+						<a href="https://www.nasa.gov/about/sites/index.html">Exhibition and Speakers</a>
+						<a href="https://www.nasa.gov/astronauts">Astronauts</a>
+						<a href="https://www.nasa.gov/about/people">People of NASA</a>
+						<a href="https://www.nasa.gov/careers">Career@NASA</a>
+					</div>
+				</div>
+				<div class='dropdown'>
+					<a class="dropbtn border1" href="">NASA Audiences</a>
+					<div class="dropdown-content">
+						<a  href="https://www.nasa.gov/news/media/info/index.html">For Media</a>
+						<a  href="https://www.nasa.gov/stem">For Education</a>
+						<a  href="https://www.nasa.gov/stem">For Students</a>
+					</div>
+				</div>
+			</ul>
+		</div>
+
+		<div id="search-box2">
+			<input class="search-txt" type="text" name="" placeholder="Search">
+			<button class="share1"><img src="seach111.png"></button>
+			<button class="share2"><img src="share111.png"></button>
+		</div>
+
+		<div id="list2">
+			<ul >
+				<li><a href="https://www.nasa.gov/topics/humans-in-space">Human in Space</a></li>
+				<li><a href="https://www.nasa.gov/topics/moon-to-mars">Moon to Mars</a></li>
+				<li><a href="https://www.nasa.gov/topics/earth/index.html">Earth</a></li>
+				<li><a href="https://www.nasa.gov/topics/technology/index.html">Space Tech</a></li>
+				<li><a href="https://www.nasa.gov/topics/aeronautics/index.html">Flight</a></li>
+				<li><a href="https://www.nasa.gov/topics/solarsystem/index.html">Solar System and Beyond</a></li>
+				<li><a href="https://www.nasa.gov/stem">STEM Engament</a></li>
+				<li><a href="https://www.nasa.gov/topics/history/index.html">History</a></li>
+				<li class="border1"><a href="https://www.nasa.gov/topics/benefits/index.html">Benefits to You</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="content">
+		<div id="line1">
+			 <a href="https://www.nasa.gov/press-release/nasa-science-cargo-heads-to-space-station-on-northrop-grumman-mission-0">
+			 	<div id="photo1">
+			 		<div class="character">
+					<div class="character1">
+						<p><a href="https://www.nasa.gov/exploration/commercial/index.html">Space Station</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/press-release/nasa-science-cargo-heads-to-space-station-on-northrop-grumman-mission-0">NASA Astronaut's Record Setting-Mission Helps Scientists For Future Missions</a></p>
+					</div>
+				</div>
+			</div></a>
+			<div id="photo2">
+				<a href="https://www.nasa.gov/topics/technology/index.html"><img src="1.2º½ÌìÆ÷.jpg"></a>
+				<div class="character">
+					<div class="character1">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Vayager</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/press-release/nasa-awards-contract-to-launch-cubesat-to-moon-from-virginia">Update:Voyager 2 Resumes Taking Science Data</a></p>
+					</div>
+				</div>
+			</div>	
+			<div id="word">
+				<div id="word-in">
+				<a><p> NASA Events</p></a>
+				<hr>
+				<div id="content2">
+				<p><a href="https://www.nasa.gov/press-release/nasa-tv-coverage-set-for-feb-14-cygnus-launch-to-space-station">
+				Fri., Feb.7,1p.m.EST:Solar Orbiter Prelaunch News Conference</a></p>
+				<p><a href="https://www.nasa.gov/press-release/nasa-tv-coverage-set-for-feb-14-cygnus-launch-to-space-station">
+				Fri., Feb.7,2:30 p.m.EST:Solar Orbiter Science Briefing</a></p>
+				<p><a href="https://www.nasa.gov/press-release/nasa-tv-coverage-set-for-feb-14-cygnus-launch-to-space-station">Sun, Feb. 9, 5 p.m. EST: Coverage of NorthropGrumman Cygnus Cargo Launch to Space Station</a></p>
+				<p><a href="https://www.nasa.gov/press-release/nasa-tv-coverage-set-for-feb-14-cygnus-launch-to-space-station" >
+				Sun, Feb. 9, 10:30 p.m. EST: Solar Orbiter Launch Coverage</a></p>
+				<p><a href="https://www.nasa.gov/press-release/nasa-tv-coverage-set-for-feb-14-cygnus-launch-to-space-station">Mon. Feb. 10£¬1 p.m. EST: "State of NASA address by Administrator .lim Bridenstine</a></p>
+				<p><a href="https://www.nasa.gov/press-release/nasa-tv-coverage-set-for-feb-14-cygnus-launch-to-space-station">
+				Tues., Feb. 11, 3 a.m. -Rendezvous and capture of the Northrop Grumman Cygnus CRS- 13 cargo craft at ISS</a></p>
+				<br>
+				</div>
+				<div id="bottom">
+				<hr>
+				<a href="https://www.nasa.gov/multimedia/nasatv/schedule.html"><span>NASA TV Schedule</span></a> 
+				<a  href="https://www.nasa.gov/launchschedule" style="float: right"><span>Launches and Landings</span></a>
+				</div>
+				</div>
+			</div>	
+			<div id="photo3">
+				<div class="character">
+					<div class="character1" style="width:150px">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Image of the Day</a></p>
+					</div>
+					<div class="character2" style="width:670px">
+						<p><a href="https://www.nasa.gov/launchschedule">Trailblazers: The Story of a Tuskegee Airman</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="line2">
+			<div id="photo21">
+				<div class="character">
+					<div class="character1">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Solar Orbiter</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/launchschedule">How ESA-NASA¡¯s Solar Orbiter Beats the Heat</a></p>
+					</div>
+				</div>
+			</div>
+
+			<div id="photo22">
+				<div class="character">
+					<div class="character1">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Space Tech</a></p>
+					</div>
+					<div class="character2" style="width:630px">
+						<p><a href="https://www.nasa.gov/launchschedule">SHIIVER: Changing the way NASA Keeps it Cool</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="line3">
+			<div id="photo31">
+				<div class="character">
+					<div class="character1" style="width:110px">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Expediton 61</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/launchschedule">Record-Setting NASA Astronaut, Crewmates Return from Space Station</a></p>
+					</div>
+				</div>
+			</div>
+
+			<div id="photo32">
+				<div class="character">
+					<div class="character1" style="width:200px">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Space Station Research</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/launchschedule">Astronaut Christina Koch¡¯s Space Station Science Scrapbook</a></p>
+					</div>
+				</div>
+			</div>
+
+			<div id="photo33">
+				<div class="character">
+					<div class="character1"style="width:160px">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Commercial Crew</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/launchschedule">NASA, Boeing to Provide Update on Starliner Orbital Flight Test Reviews</a></p>
+					</div>
+				</div>
+			</div>
+
+			<div id="photo34">
+				<div class="character" >
+					<div class="character1" style="width:200px">
+						<p><a href="https://www.nasa.gov/topics/technology/index.html">Space Station Research</a></p>
+					</div>
+					<div class="character2">
+						<p><a href="https://www.nasa.gov/launchschedule">Astronaut Christina Koch¡¯s Space Station Science Scrapbook</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<form>
+			<input type="submit" value="MORE STORIES" class="bottom2">
+		</form>
+		<div id="footer2">
+			<a href="" class="picture"><img src="nasa-×óÉÏ.svg" width="80px" height="80px"></a>
+			<span>National Aeronautics and Space Administration<br>
+			NASA Official: Brian Dunbar</span>
+		</div>
+		<ul>
+			<li><a href="https://www.nasa.gov/offices/odeo/no-fear-act">No Fear Act</a></li>
+			<li><a href="https://www.nasa.gov/FOIA/index.html">FOIA</a></li>
+			<li><a href="https://www.nasa.gov/about/highlights/HP_Privacy.html">Privacy</a></li>
+			<li><a href="https://oig.nasa.gov/">Office of Inspector General</a></li>
+			<li><a href="https://osc.gov/">Office of Special Counsel</a></li>
+			<li><a href="https://www.nasa.gov/news/budget/index.html">Agency Financial Reports</a></li>
+			<li><a href="https://www.nasa.gov/about/contact/index.html">Contact NASA</a></li>
+		</ul>
+	</div>
+	</div>
+</body>
+</html>
